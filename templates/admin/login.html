@@ -1,0 +1,13 @@
+{% extends "admin/base.html" %}
+{% block title %}Log In{% endblock %}
+{% block content %}
+<div class="admin-card admin-login-card">
+  <h1>Admin Log In</h1>
+  <p style="color:var(--ink-soft);margin-bottom:20px;">Sign in to manage products, messages and site content.</p>
+  <form method="POST" class="admin-form">
+    <label>Username <input type="text" name="username" required autofocus></label>
+    <label>Password <input type="password" name="password" required></label>
+    <button type="submit" class="btn btn-red" style="border:none;cursor:pointer;align-self:flex-start;">Log In</button>
+  </form>
+</div>
+{% endblock %}

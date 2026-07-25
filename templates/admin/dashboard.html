@@ -1,0 +1,35 @@
+{% extends "admin/base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+<h1 style="margin-bottom:24px;">Dashboard</h1>
+
+<div class="admin-grid-3">
+  <div class="admin-card">
+    <div class="stat-num">{{ product_count }}</div>
+    <div class="stat-label">Products listed</div>
+    <a href="{{ url_for('admin_products') }}" class="btn-tiny" style="margin-top:14px;">Manage Products →</a>
+  </div>
+  <div class="admin-card">
+    <div class="stat-num">{{ message_count }}</div>
+    <div class="stat-label">Contact messages</div>
+    <a href="{{ url_for('admin_messages') }}" class="btn-tiny" style="margin-top:14px;">View Messages →</a>
+  </div>
+  <div class="admin-card">
+    <div class="stat-num">{{ unread_count }}</div>
+    <div class="stat-label">Unread messages</div>
+    <a href="{{ url_for('admin_messages') }}" class="btn-tiny" style="margin-top:14px;">Review →</a>
+  </div>
+</div>
+
+<div class="admin-card">
+  <h3 style="margin-bottom:10px;">Quick tips</h3>
+  <ul style="color:var(--ink-soft);line-height:1.9;">
+    <li>Add, edit or remove products from the <a href="{{ url_for('admin_products') }}">Products</a> page — changes appear on the live site instantly.</li>
+    <li>Update your phone number, address, socials and homepage text under <a href="{{ url_for('admin_settings') }}">Site Settings</a>.</li>
+    <li>Anyone who fills out the Contact form on your site shows up under <a href="{{ url_for('admin_messages') }}">Messages</a>.</li>
+    <li>Change your admin password any time from <a href="{{ url_for('admin_account') }}">Account</a>.</li>
+  </ul>
+</div>
+
+{% endblock %}

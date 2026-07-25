@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}{{ settings.site_name }} — Farm-Fresh Desi & Gavran Poultry, Manor (Palghar){% endblock %}
+{% block description %}{{ settings.site_name }} raises Desi and Gavran chicken the natural, free-range way in Manor, Palghar. Order farm-fresh eggs, chicken and parent stock straight from the farm.{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow"><span class="quad-dots"><span></span><span></span><span></span><span></span></span>{{ settings.hero_eyebrow }}</span>
+      <h1>{{ settings.hero_title | safe }}</h1>
+      <p class="hero-lede">{{ settings.hero_lede | safe }}</p>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="https://wa.me/{{ settings.phone_e164 }}?text=Hi%20{{ settings.site_name }}%2C%20I%27d%20like%20to%20order">Order on WhatsApp →</a>
+        <a class="btn btn-outline" href="{{ url_for('products') }}">See Our Products</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>0%</strong>Chemicals or hormones</div>
+        <div><strong>100%</strong>Free-range &amp; open pasture</div>
+        <div><strong>Daily</strong>Fresh-collected eggs</div>
+      </div>
+    </div>
+
+    <div class="signboard-wrap">
+      <svg class="birds" viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4 14c3-6 7-6 9 0 2-6 6-6 9 0" stroke="#211C14" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M34 6c3-6 7-6 9 0 2-6 6-6 9 0" stroke="#211C14" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M64 16c3-6 7-6 9 0 2-6 6-6 9 0" stroke="#211C14" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span class="rope left"></span>
+      <span class="rope right"></span>
+      <div class="signboard">
+        <img src="{{ url_for('static', filename='assets/logo.jpg') }}" alt="{{ settings.site_name }} logo">
+        <div class="sb-tag">{{ settings.site_name | upper }}</div>
+        <div class="sb-sub">EST. POULTRY · DESI &amp; GAVRAN</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-card c-red">
+        <svg class="ic" viewBox="0 0 48 48" fill="none"><path d="M24 6c0 10-8 8-8 18 0 5 3.6 9 8 9s8-4 8-9c0-10-8-8-8-18Z" stroke="#E13A3A" stroke-width="2.4" stroke-linejoin="round"/><path d="M24 18v15" stroke="#E13A3A" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <h3>Natural Feed</h3>
+        <p>Jowar, maize and rice — no synthetic growth boosters, ever.</p>
+      </div>
+      <div class="feature-card c-blue">
+        <svg class="ic" viewBox="0 0 48 48" fill="none"><path d="M6 38V18m12 20V12m12 26V8m12 30V20" stroke="#2C7DC9" stroke-width="2.4" stroke-linecap="round"/><path d="M4 38h40" stroke="#2C7DC9" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <h3>Free-Range Birds</h3>
+        <p>Our flock forages across open pasture, every single day.</p>
+      </div>
+      <div class="feature-card c-yellow">
+        <svg class="ic" viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="27" rx="11" ry="14" stroke="#F4B731" stroke-width="2.4"/><path d="M24 13c4 0 7 3 7 3" stroke="#F4B731" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <h3>Fresh Eggs Daily</h3>
+        <p>Collected each morning and kept chemical- and dye-free.</p>
+      </div>
+      <div class="feature-card c-green">
+        <svg class="ic" viewBox="0 0 48 48" fill="none"><path d="M10 26c0-9 6-16 14-16s14 7 14 16" stroke="#1F6B3F" stroke-width="2.4" stroke-linecap="round"/><path d="M14 26h20l-2 12H16l-2-12Z" stroke="#1F6B3F" stroke-width="2.4" stroke-linejoin="round"/></svg>
+        <h3>Hygienic Farming</h3>
+        <p>Clean coops, clean water, healthy birds — no exceptions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container split">
+    <div class="media-block">
+      <svg viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <ellipse cx="110" cy="150" rx="80" ry="10" fill="#cfe7cd"/>
+        <ellipse cx="100" cy="115" rx="48" ry="36" fill="#FFFFFF" stroke="#211C14" stroke-width="2.4"/>
+        <circle cx="142" cy="92" r="20" fill="#FFFFFF" stroke="#211C14" stroke-width="2.4"/>
+        <path d="M158 86c8-3 14 2 12 8-3 6-12 4-12-2" fill="#E13A3A" stroke="#211C14" stroke-width="2"/>
+        <path d="M150 78c2-6 8-9 13-7" stroke="#F4B731" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <circle cx="148" cy="90" r="2.2" fill="#211C14"/>
+        <path d="M132 100c4 2 9 2 13 0" stroke="#211C14" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <ellipse cx="70" cy="140" rx="13" ry="10" fill="#FFFFFF" stroke="#211C14" stroke-width="2.2"/>
+        <ellipse cx="92" cy="146" rx="13" ry="10" fill="#FFFFFF" stroke="#211C14" stroke-width="2.2"/>
+        <circle cx="40" cy="148" r="11" fill="#F4B731" stroke="#211C14" stroke-width="2"/>
+        <circle cx="61" cy="153" r="11" fill="#F4B731" stroke="#211C14" stroke-width="2"/>
+      </svg>
+    </div>
+    <div>
+      <span class="eyebrow"><span class="quad-dots"><span></span><span></span><span></span><span></span></span>From Coop to Kitchen</span>
+      <h2>A farm we also teach from, not just sell from.</h2>
+      <p>{{ settings.site_name }} started as one family's effort to bring back honest, chemical-free poultry — and grew into a community that follows our day-to-day work on YouTube. Every bird you order is raised exactly how we show it: in the open, on natural feed, with no shortcuts.</p>
+      <a class="btn btn-outline" href="{{ url_for('about') }}">Learn More About Our Farm →</a>
+    </div>
+  </div>
+</section>
+
+<section class="pillars-section">
+  <div class="container">
+    <span class="eyebrow">Why Families Choose Us</span>
+    <h2>Three things we never compromise on.</h2>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <svg class="ic" viewBox="0 0 48 48" fill="none"><path d="M24 6 8 14v10c0 11 7 16 16 18 9-2 16-7 16-18V14L24 6Z" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><path d="M17 24l5 5 9-11" stroke="#F4B731" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Naturally Grown</h3>
+        <p>Free-range, stress-free, and grown at nature's own pace — never rushed.</p>
+      </div>
+      <div class="pillar">
+        <svg class="ic" viewBox="0 0 48 48" fill="none"><path d="M24 4v40M24 4l8 8M24 4l-8 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 30c4-3 24-3 28 0" stroke="#2C7DC9" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <h3>Natural Diet</h3>
+        <p>Jowar, maize and rice, plus daily foraging across open pasture land.</p>
+      </div>
+      <div class="pillar">
+        <svg class="ic" viewBox="0 0 48 48" fill="none"><path d="M24 44s16-9 16-22V10l-16-6-16 6v12c0 13 16 22 16 22Z" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><path d="M24 16v12" stroke="#E13A3A" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <h3>Natural Ethics</h3>
+        <p>Sustainable, transparent practices that respect both the land and the livestock.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <h2>Ready for chicken &amp; eggs you can trust?</h2>
+        <p>Message us on WhatsApp — we'll confirm availability the same day.</p>
+      </div>
+      <a class="btn btn-ghost-light" href="https://wa.me/{{ settings.phone_e164 }}?text=Hi%20{{ settings.site_name }}%2C%20I%27d%20like%20to%20order">Chat on WhatsApp →</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

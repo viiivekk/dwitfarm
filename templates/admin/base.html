@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Admin{% endblock %} — {{ settings.site_name }}</title>
+<link rel="icon" href="{{ url_for('static', filename='assets/logo.jpg') }}">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="admin-shell">
+
+{% if session.get('admin_id') %}
+<div class="admin-topbar">
+  <div class="container">
+    <span class="brand-mini">{{ settings.site_name }} · Admin</span>
+    <nav class="admin-nav">
+      <a href="{{ url_for('admin_dashboard') }}" class="{{ 'active' if active=='dashboard' else '' }}">Dashboard</a>
+      <a href="{{ url_for('admin_products') }}" class="{{ 'active' if active=='products' else '' }}">Products</a>
+      <a href="{{ url_for('admin_messages') }}" class="{{ 'active' if active=='messages' else '' }}">Messages</a>
+      <a href="{{ url_for('admin_settings') }}" class="{{ 'active' if active=='settings' else '' }}">Site Settings</a>
+      <a href="{{ url_for('admin_account') }}" class="{{ 'active' if active=='account' else '' }}">Account</a>
+      <a href="{{ url_for('index') }}" target="_blank">View Site ↗</a>
+      <a href="{{ url_for('admin_logout') }}">Log Out</a>
+    </nav>
+  </div>
+</div>
+{% endif %}
+
+<div class="admin-main">
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <div class="flash flash-{{ category }}">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}{{ settings.site_name }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ settings.site_name }} — {{ settings.tagline }}{% endblock %}">
+<link rel="icon" href="{{ url_for('static', filename='assets/logo.jpg') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="{{ url_for('index') }}" class="brand">
+      <img src="{{ url_for('static', filename='assets/logo.jpg') }}" alt="{{ settings.site_name }} logo">
+      <span class="brand-name">{{ settings.site_name }}<span>{{ settings.tagline }}</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="{{ url_for('index') }}" class="{{ 'active' if active_page == 'home' else '' }}">Home</a>
+      <a href="{{ url_for('about') }}" class="{{ 'active' if active_page == 'about' else '' }}">About Us</a>
+      <a href="{{ url_for('products') }}" class="{{ 'active' if active_page == 'products' else '' }}">Products</a>
+      <a href="{{ url_for('contact') }}" class="{{ 'active' if active_page == 'contact' else '' }}">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-red btn-sm" href="https://wa.me/{{ settings.phone_e164 }}?text=Hi%20{{ settings.site_name }}%2C%20I%27d%20like%20to%20order">
+        <span class="btn-label-full">Order on </span>WhatsApp
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="container" style="padding-top:16px;">
+      {% for category, msg in messages %}
+        <div class="flash flash-{{ category }}">{{ msg }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="{{ url_for('static', filename='assets/logo.jpg') }}" alt="{{ settings.site_name }} logo">
+          <span>{{ settings.site_name }}</span>
+        </div>
+        <p style="max-width:300px;color:#B9AF99;font-size:14.5px;">{{ settings.footer_tagline | safe }}</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About Us</a></li>
+          <li><a href="{{ url_for('products') }}">Products</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get in Touch</h5>
+        <ul>
+          <li><a href="tel:+{{ settings.phone_e164 }}">{{ settings.phone_display }}</a></li>
+          <li><a href="mailto:{{ settings.email }}">{{ settings.email }}</a></li>
+          <li><a href="{{ settings.youtube_url }}" target="_blank" rel="noopener">Watch us on YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span><span class="quad-dots"><span></span><span></span><span></span><span></span></span>© 2026 {{ settings.site_name }}, {{ settings.tagline }}</span>
+      <span>Built with the same care we put into the farm.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

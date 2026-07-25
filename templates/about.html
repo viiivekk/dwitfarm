@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}About Us — {{ settings.site_name }}{% endblock %}
+{% block description %}{{ settings.site_name }} is a natural Desi & Gavran poultry farm in Manor, Palghar, raising chicken and eggs the traditional way — and teaching others to do the same on YouTube.{% endblock %}
+
+{% block content %}
+
+<section class="page-head">
+  <div class="container">
+    <div class="crumb"><a href="{{ url_for('index') }}">Home</a> / About Us</div>
+    <span class="eyebrow"><span class="quad-dots"><span></span><span></span><span></span><span></span></span>Our Story</span>
+    <h1>{{ settings.about_intro_title }}</h1>
+    <p style="max-width:620px;">{{ settings.about_intro_text }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="container split">
+    <div>
+      <span class="eyebrow">Who We Are</span>
+      <h2>{{ settings.about_body_title }}</h2>
+      <p>{{ settings.about_body_text }}</p>
+      <p>What began as one family's poultry shed has grown into a small, trusted farm that supplies fresh chicken, eggs and healthy parent stock across the Palghar region.</p>
+    </div>
+    <div class="media-block">
+      <svg viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <ellipse cx="110" cy="160" rx="82" ry="9" fill="#cfe7cd"/>
+        <rect x="58" y="74" width="92" height="78" rx="6" fill="#fff" stroke="#211C14" stroke-width="2.4"/>
+        <path d="M50 74l54-36 54 36Z" fill="#E13A3A" stroke="#211C14" stroke-width="2.4" stroke-linejoin="round"/>
+        <rect x="94" y="114" width="22" height="38" fill="#211C14" opacity=".85"/>
+        <circle cx="133" cy="96" r="11" fill="none" stroke="#2C7DC9" stroke-width="2.2"/>
+        <path d="M133 85v22M122 96h22" stroke="#2C7DC9" stroke-width="1.6"/>
+        <path d="M32 152c0-24 9-38 9-38" stroke="#1F6B3F" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M41 114c8-6 16 0 14 8-2 6-12 4-14-2" fill="#F4B731" stroke="#1F6B3F" stroke-width="1.6"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper);">
+  <div class="container">
+    <span class="eyebrow"><span class="quad-dots"><span></span><span></span><span></span><span></span></span>Our Philosophy</span>
+    <h2>We Are Naturals — in three commitments.</h2>
+    <ul class="mark-list" style="max-width:680px;margin-top:28px;">
+      <li>
+        <span class="dot"></span>
+        <div><strong>Naturally Grown</strong><p>Our birds live free-range and stress-free, growing at their own pace for healthier meat and eggs.</p></div>
+      </li>
+      <li>
+        <span class="dot"></span>
+        <div><strong>Natural Diet</strong><p>A feed mix of jowar, maize and rice, topped up with daily foraging across open pasture.</p></div>
+      </li>
+      <li>
+        <span class="dot"></span>
+        <div><strong>Natural Ethics</strong><p>Sustainable, clean farming that respects the land as much as the livestock living on it.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="eyebrow">Our Offerings</span>
+    <h2>What you can bring home from the farm.</h2>
+    <div class="offering-grid">
+      <div class="offering-card">
+        <svg viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="27" rx="11" ry="14" stroke="#F4B731" stroke-width="2.4"/></svg>
+        <h4>Farm-Fresh Desi Eggs</h4>
+        <p>Rich in protein, omega-3s and essential vitamins, collected fresh every day.</p>
+      </div>
+      <div class="offering-card">
+        <svg viewBox="0 0 48 48" fill="none">
+          <path d="M9 33c-2-1-3-3-1-5 1-1 3-1 4 0" stroke="#E13A3A" stroke-width="2.2" stroke-linecap="round"/>
+          <ellipse cx="21" cy="27" rx="13" ry="10" stroke="#E13A3A" stroke-width="2.4"/>
+          <circle cx="34" cy="17" r="7" stroke="#E13A3A" stroke-width="2.4"/>
+          <path d="M40 16l5 2-5 2Z" fill="#E13A3A"/>
+          <path d="M31 10c1-3 4-4 6-3" stroke="#F4B731" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M17 37v6M27 37v6" stroke="#E13A3A" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <h4>Gavran Chicken</h4>
+        <p>Naturally raised free-range chicken, full of authentic flavour and texture.</p>
+      </div>
+      <div class="offering-card">
+        <svg viewBox="0 0 48 48" fill="none"><ellipse cx="18" cy="30" rx="9" ry="7" stroke="#2C7DC9" stroke-width="2.4"/><ellipse cx="30" cy="30" rx="9" ry="7" stroke="#2C7DC9" stroke-width="2.4"/><ellipse cx="24" cy="20" rx="9" ry="7" stroke="#2C7DC9" stroke-width="2.4"/></svg>
+        <h4>Premium Parent Stock</h4>
+        <p>Strong, healthy breeding birds for farmers building their own poultry line.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--cream-deep);">
+  <div class="container split rev">
+    <div>
+      <span class="eyebrow"><span class="quad-dots"><span></span><span></span><span></span><span></span></span>Good to Know</span>
+      <h2>Why Desi eggs earn a place at the table.</h2>
+      <p>Eggs are one of nature's most complete foods, and our naturally raised Desi eggs are packed with nutrients that support everyday health:</p>
+      <ul class="mark-list">
+        <li><span class="dot"></span><div><p style="margin:0;"><strong style="display:inline;">Protein</strong> for muscle growth and repair</p></div></li>
+        <li><span class="dot"></span><div><p style="margin:0;"><strong style="display:inline;">Omega-3 fatty acids</strong> for heart and brain health</p></div></li>
+        <li><span class="dot"></span><div><p style="margin:0;"><strong style="display:inline;">Vitamin B12 &amp; D</strong> for energy and strong bones</p></div></li>
+        <li><span class="dot"></span><div><p style="margin:0;"><strong style="display:inline;">Zinc, iron &amp; selenium</strong> for everyday immunity</p></div></li>
+      </ul>
+    </div>
+    <div class="media-block" style="background:var(--cream);border-color:#EFE3C7;">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <ellipse cx="100" cy="170" rx="80" ry="8" fill="#EFE3C7"/>
+        <ellipse cx="70" cy="120" rx="26" ry="32" fill="#fff" stroke="#211C14" stroke-width="2.4"/>
+        <ellipse cx="130" cy="130" rx="22" ry="28" fill="#fff" stroke="#211C14" stroke-width="2.4"/>
+        <ellipse cx="100" cy="150" rx="20" ry="25" fill="#fff" stroke="#211C14" stroke-width="2.4"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper);">
+  <div class="container">
+    <span class="eyebrow">Why Choose {{ settings.site_name }}</span>
+    <div class="pillar-grid" style="margin-top:24px;">
+      <div class="pillar" style="background:var(--cream);border-color:#EFE3C7;">
+        <h3 style="color:var(--ink);">100% Chemical-Free</h3>
+        <p style="color:var(--ink-soft);">No hormones, no shortcuts — from feed to final product.</p>
+      </div>
+      <div class="pillar" style="background:var(--cream);border-color:#EFE3C7;">
+        <h3 style="color:var(--ink);">Ethically Raised</h3>
+        <p style="color:var(--ink-soft);">Free-range birds with room to roam, every day of their lives.</p>
+      </div>
+      <div class="pillar" style="background:var(--cream);border-color:#EFE3C7;">
+        <h3 style="color:var(--ink);">Trusted Locally</h3>
+        <p style="color:var(--ink-soft);">A growing community across Palghar — and on YouTube.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-band" style="background:var(--green-dark);">
+      <div>
+        <h2>From our family to yours.</h2>
+        <p>Visit the farm by appointment, or follow along on YouTube to see how it's all raised.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a class="btn btn-ghost-light" href="{{ settings.youtube_url }}" target="_blank" rel="noopener">Watch on YouTube</a>
+        <a class="btn btn-red" href="{{ url_for('contact') }}">Plan a Visit →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

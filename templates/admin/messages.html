@@ -1,0 +1,45 @@
+{% extends "admin/base.html" %}
+{% block title %}Messages{% endblock %}
+{% block content %}
+
+<h1 style="margin-bottom:24px;">Contact Messages</h1>
+
+<div class="admin-card">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Received</th>
+        <th>From</th>
+        <th>Message</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for m in messages %}
+      <tr style="{% if not m.is_read %}background:#FFFBEF;{% endif %}">
+        <td style="white-space:nowrap;">{{ m.created_at.strftime('%d %b %Y, %I:%M %p') }}</td>
+        <td>
+          <strong>{{ m.name }}</strong><br>
+          {% if m.phone %}<a href="tel:{{ m.phone }}">{{ m.phone }}</a><br>{% endif %}
+          {% if m.email %}<a href="mailto:{{ m.email }}">{{ m.email }}</a>{% endif %}
+        </td>
+        <td style="max-width:320px;">{{ m.message }}</td>
+        <td>{% if m.is_read %}<span class="badge-yes">Read</span>{% else %}<span class="badge-no">Unread</span>{% endif %}</td>
+        <td class="admin-actions">
+          <form method="POST" action="{{ url_for('admin_message_toggle_read', message_id=m.id) }}">
+            <button type="submit" class="btn-tiny">Mark {{ "Unread" if m.is_read else "Read" }}</button>
+          </form>
+          <form method="POST" action="{{ url_for('admin_message_delete', message_id=m.id) }}" onsubmit="return confirm('Delete this message?');">
+            <button type="submit" class="btn-tiny danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5">No messages yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

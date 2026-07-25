@@ -1,0 +1,51 @@
+{% extends "admin/base.html" %}
+{% block title %}Site Settings{% endblock %}
+{% block content %}
+
+<h1 style="margin-bottom:24px;">Site Settings</h1>
+
+<form method="POST" class="admin-form" style="max-width:760px;">
+
+  <div class="admin-card settings-section">
+    <h3>Business Details</h3>
+    <label>Farm / business name <input type="text" name="site_name" value="{{ settings.site_name }}"></label>
+    <label>Tagline (shown under the name, e.g. "Manor · Palghar") <input type="text" name="tagline" value="{{ settings.tagline }}"></label>
+    <label>Phone / WhatsApp number, digits only with country code (e.g. 919226466497)
+      <input type="text" name="phone_e164" value="{{ settings.phone_e164 }}">
+    </label>
+    <label>Phone number as displayed to visitors <input type="text" name="phone_display" value="{{ settings.phone_display }}"></label>
+    <label>Email <input type="text" name="email" value="{{ settings.email }}"></label>
+    <label>Farm address <input type="text" name="address" value="{{ settings.address }}"></label>
+  </div>
+
+  <div class="admin-card settings-section">
+    <h3>Social Links</h3>
+    <label>YouTube URL <input type="text" name="youtube_url" value="{{ settings.youtube_url }}"></label>
+    <label>Facebook URL <input type="text" name="facebook_url" value="{{ settings.facebook_url }}"></label>
+    <label>Instagram URL <input type="text" name="instagram_url" value="{{ settings.instagram_url }}"></label>
+  </div>
+
+  <div class="admin-card settings-section">
+    <h3>Homepage Text</h3>
+    <label>Small label above the headline <input type="text" name="hero_eyebrow" value="{{ settings.hero_eyebrow }}"></label>
+    <label>Main headline (basic HTML like &lt;span&gt; is allowed) <textarea name="hero_title">{{ settings.hero_title }}</textarea></label>
+    <label>Sub-headline text <textarea name="hero_lede">{{ settings.hero_lede }}</textarea></label>
+  </div>
+
+  <div class="admin-card settings-section">
+    <h3>About Page Text</h3>
+    <label>Page intro headline <input type="text" name="about_intro_title" value="{{ settings.about_intro_title }}"></label>
+    <label>Page intro paragraph <textarea name="about_intro_text">{{ settings.about_intro_text }}</textarea></label>
+    <label>Section headline <input type="text" name="about_body_title" value="{{ settings.about_body_title }}"></label>
+    <label>Section paragraph <textarea name="about_body_text">{{ settings.about_body_text }}</textarea></label>
+  </div>
+
+  <div class="admin-card settings-section">
+    <h3>Footer</h3>
+    <label>Footer tagline <textarea name="footer_tagline">{{ settings.footer_tagline }}</textarea></label>
+  </div>
+
+  <button type="submit" class="btn btn-red" style="border:none;cursor:pointer;align-self:flex-start;">Save Settings</button>
+</form>
+
+{% endblock %}

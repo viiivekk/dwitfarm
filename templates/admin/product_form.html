@@ -1,0 +1,45 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ "Edit Product" if product else "Add Product" }}{% endblock %}
+{% block content %}
+
+<h1 style="margin-bottom:24px;">{{ "Edit Product" if product else "Add Product" }}</h1>
+
+<div class="admin-card">
+  <form method="POST" class="admin-form">
+    <label>Name <input type="text" name="name" required value="{{ product.name if product else '' }}"></label>
+
+    <label>Tag / badge text (optional) <input type="text" name="tag" value="{{ product.tag if product else '' }}" placeholder="e.g. Daily Fresh"></label>
+
+    <label>Tag color
+      <select name="tag_color">
+        {% for c in ["red","yellow","blue"] %}
+        <option value="{{ c }}" {% if product and product.tag_color == c %}selected{% endif %}>{{ c|capitalize }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <label>Icon background color <input type="color" name="art_bg" value="{{ product.art_bg if product else '#FBE3E1' }}"></label>
+
+    <label>Description <textarea name="description" required>{{ product.description if product else '' }}</textarea></label>
+
+    <label>Button label <input type="text" name="cta_label" value="{{ product.cta_label if product else 'Order Now' }}"></label>
+
+    <label>WhatsApp pre-filled message
+      <input type="text" name="whatsapp_message" value="{{ product.whatsapp_message if product else '' }}" placeholder="e.g. I want to order ...">
+    </label>
+
+    <label>Sort order (lower shows first) <input type="number" name="sort_order" value="{{ product.sort_order if product else 0 }}"></label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" name="is_active" {% if not product or product.is_active %}checked{% endif %}>
+      Visible on the live site
+    </label>
+
+    <div style="display:flex;gap:10px;">
+      <button type="submit" class="btn btn-red" style="border:none;cursor:pointer;">{{ "Save Changes" if product else "Add Product" }}</button>
+      <a href="{{ url_for('admin_products') }}" class="btn btn-outline">Cancel</a>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
